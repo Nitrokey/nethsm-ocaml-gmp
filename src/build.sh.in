@@ -3,6 +3,7 @@
 set -e
 
 xzcat gmp-6.3.0.tar.xz | tar -xf -
+patch -p1 -d gmp-6.3.0/ <libgmp-fat.patch
 cd gmp-6.3.0
 sed \
   -e 's/\(gmp_compile="$cc .*conftest.c\)/\1 $LIBS/g' \
