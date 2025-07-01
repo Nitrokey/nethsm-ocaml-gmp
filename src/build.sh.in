@@ -10,6 +10,7 @@ sed \
   -e 's/\(gmp_compile="$CC .*conftest.c\)/\1 $LIBS/g' \
   configure > configure.tmp
 mv configure.tmp configure
+patch -p1 configure ../gcc.15.patch
 chmod +x configure
 
 if [ "$5" = "false" ]; then
